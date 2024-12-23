@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Booking - Room [[${roomNumber}]]</title>
+		<link rel="icon" th:href="@{/img/favicon.png}" type="image/x-icon">
+		<link rel="stylesheet" th:href="@{/styles/room-details.css}">
+</head>
+
+<body>
+<header class="index-header" th:insert="~{fragments/header :: #headerFragment}"></header>
+<div class="login-background">
+		<div class="triangle" style="top: 10%; left: 20%; transform: scale(1);"></div>
+		<div class="triangle" style="top: 80%; left: 15%; transform: scale(0.8);"></div>
+		<div class="triangle" style="top: 60%; left: 85%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 85%; left: 75%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 40%; left: 5%; transform: scale(1.1);"></div>
+		<div class="triangle" style="top: 17%; left: 75%; transform: scale(0.9);"></div>
+</div>
+<main>
+		<div class="container">
+				<div class="content">
+						<h1>Room № <span th:text="${roomNumber}"></span> - <span th:text="${room.type}"></span></h1>
+				</div>
+				<div class="room-info">
+						<p>
+								Room capacity: <span th:text="${room.getRoomCapacity()}"></span> person
+						</p>
+						<p>
+								Description: <span th:text="${room.getDescription()}"></span>
+						</p>
+						<p>
+								Type: <span th:text="${room.getType()}"></span>
+						</p>
+						<p>
+								Status: <span th:text="${room.getStatus()}"
+								              th:classappend="'status-' + ${room.getStatus().name().toLowerCase()}"
+								              class="status-label"></span>
+						</p>
+						<p>
+								Price: <span th:text="${room.getPriceForDay()}"></span> UAH
+						</p>
+				</div>
+				<div class="reserving-box">
+						<div th:if="${room.getStatus().name() == 'FREE'}" class="success-box">
+								<div class="icon">✔️</div>
+								<h2>Reserve this Room</h2>
+								<form th:action="@{/rooms/takeRoom}" method="POST" class="reserve-block-items">
+										<div class="form-group">
+												<label for="check-in">Check-in Date:</label>
+												<input type="date" id="check-in" name="checkIn" required>
+										</div>
+										<div class="form-group">
+												<label for="check-out">Check-out Date:</label>
+												<input type="date" id="check-out" name="checkOut" required>
+										</div>
+										<div class="form-group">
+												<label for="guests">Number of Guests:</label>
+												<input type="number" id="guests" name="guestsCount" min="1" th:max="${room.getRoomCapacity()}" required>
+										</div>
+										<input type="hidden" id="total-price-input" name="totalPrice" value="0">
+										<input type="hidden" name="roomId" th:value="${room.getId()}">
+										<button type="submit" class="reserve-button">
+												Reserve for <span id="total-price">0</span> UAH
+										</button>
+								</form>
+
+						</div>
+						<div th:if="${room.getStatus().name() != 'FREE'}" class="status-box">
+								<div class="icon">⚠️</div>
+								<h2>Room is reserved</h2>
+								<p>The room is occupied until <span th:text="${checkOut}">yyyy-mm-dd</span>.</p>
+								<p>You will be able to book this room after the reservation period has expired.</p>
+						</div>
+				</div>
+		</div>
+</main>
+<footer class="index-footer" th:insert="~{fragments/footer :: #footerFragment}"></footer>
+
+<script>
+		document.addEventListener('DOMContentLoaded', () => {
+				const checkInInput = document.getElementById('check-in');
+				const checkOutInput = document.getElementById('check-out');
+				const totalPriceSpan = document.getElementById('total-price');
+				const totalPriceHidden = document.getElementById('total-price-input');
+				const roomPricePerDay = parseFloat([[${room.getPriceForDay()}]]);
+
+				function calculateTotalPrice() {
+						const checkInDate = new Date(checkInInput.value);
+						const checkOutDate = new Date(checkOutInput.value);
+
+						if (checkInDate && checkOutDate && checkOutDate > checkInDate) {
+								const timeDifference = checkOutDate - checkInDate;
+								const dayCount = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+								const totalPrice = dayCount * roomPricePerDay;
+
+								totalPriceSpan.textContent = totalPrice.toFixed(2);
+								totalPriceHidden.value = totalPrice;
+						} else {
+								totalPriceSpan.textContent = '0';
+								totalPriceHidden.value = 0;
+						}
+				}
+
+				checkInInput.addEventListener('change', calculateTotalPrice);
+				checkOutInput.addEventListener('change', calculateTotalPrice);
+		});
+</script>
+</body>
+</html>

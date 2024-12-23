@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+		<meta charset="UTF-8">
+		<title>Header</title>
+</head>
+
+<body>
+<header id="headerFragment" class="header-fragment">
+		<link rel="stylesheet" th:href="@{/styles/fragments/header.css}">
+		<h1><a th:href="@{/}">Booking</a></h1>
+		<nav class="header-nav">
+				<a th:href="@{/rooms}">Reserve</a>
+				<form sec:authorize="isAuthenticated()" id="logoutForm" th:action="@{/logout}" method="POST">
+						<button type="submit" id="logoutButton">Logout</button>
+				</form>
+				<a sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a>
+				<a sec:authorize="hasRole('MANAGER')" th:href="@{/manager}">Manage</a>
+				<a th:href="@{/user}">H</a>
+		</nav>
+</header>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Booking - Login</title>
+		<link rel="icon" th:href="@{/img/favicon.png}" type="image/x-icon">
+		<link rel="stylesheet" th:href="@{/styles/login.css}">
+</head>
+
+<body class="login-page-body">
+<div class="login-background">
+		<div class="triangle" style="top: 10%; left: 20%; transform: scale(1);"></div>
+		<div class="triangle" style="top: 80%; left: 15%; transform: scale(0.8);"></div>
+		<div class="triangle" style="top: 70%; left: 85%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 90%; left: 60%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 40%; left: 30%; transform: scale(1.1);"></div>
+		<div class="triangle" style="top: 17%; left: 75%; transform: scale(0.9);"></div>
+</div>
+
+<div class="login-block">
+		<h1><a th:href="@{/}">BOOKING</a></h1>
+		<div class="form-container">
+				<h2>LOGIN</h2>
+				<form th:action="@{/login}" method="post">
+						<input type="text" id="login" name="username" placeholder="Email or username" required>
+						<input type="password" id="password" name="password" placeholder="Password" required>
+						<button type="submit">Log in</button>
+				</form>
+				<p class="registration-link">Not registered yet? <a th:href="@{/registration}">Create an account</a></p>
+		</div>
+</div>
+
+</body>
+</html>
+

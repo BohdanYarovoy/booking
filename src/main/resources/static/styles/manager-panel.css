@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c7e9c7;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1400px;
+    min-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #2d7d2d;
+    margin-bottom: 50px;
+}
+
+.room-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.room-item {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.6);
+    background-color: #fff;
+}
+
+.room-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.6);
+}
+
+.room-summary {
+    background: #e6e6e6;
+    color: #000000;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.room-summary p {
+    margin: 0;
+    width: 250px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.room-summary p:first-child {
+    text-align: left;
+}
+
+.room-summary p:last-child {
+    text-align: right;
+}
+
+.room-details {
+    padding: 15px 20px;
+    background: #f9f9f9;
+    display: none;
+    font-size: 20px;
+}
+
+.room-details p {
+    margin: 5px 0;
+}
+
+.user-details {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #eef;
+    border-radius: 5px;
+}
+
+.user-details p {
+    margin: 10px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px auto;
+    background-color: #2d7d2d;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #1a4e1a;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .room-summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .room-summary p {
+        margin-bottom: 5px;
+    }
+}
+
+.control-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.control-buttons .reject-button,
+.control-buttons .apply-button {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+.control-buttons button {
+    padding: 12px 36px;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.control-buttons .reject-button button {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.control-buttons .reject-button button:hover {
+    background-color: #f5c6cb;
+    transform: scale(1.02);
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.4);
+}
+
+.control-buttons .apply-button button {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.control-buttons .apply-button button:hover {
+    background-color: #c3e6cb;
+    transform: scale(1.02);
+    box-shadow: 0 2px 5px rgba(0, 255, 0, 0.4);
+}
+
+.pagination {
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    gap: 20px;
+}
+
+.pagination div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pagination-link {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #017301;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-link:hover {
+    background-color: #1c961c;
+}
+
+.pagination p {
+    margin: 0;
+    color: #555;
+}

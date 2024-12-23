@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Booking - Main</title>
+		<link rel="icon" th:href="@{/img/favicon.png}" type="image/x-icon">
+		<link rel="stylesheet" th:href="@{/styles/index.css}">
+</head>
+
+<body class="booking-page">
+<header class="index-header" th:insert="~{fragments/header :: #headerFragment}"></header>
+<div class="background">
+		<div class="booking-triangle" style="top: 10%; left: 20%; transform: scale(1);"></div>
+		<div class="booking-triangle" style="top: 80%; left: 15%; transform: scale(0.8);"></div>
+		<div class="booking-triangle" style="top: 60%; left: 85%; transform: scale(1.2);"></div>
+		<div class="booking-triangle" style="top: 87%; left: 70%; transform: scale(1.2);"></div>
+		<div class="booking-triangle" style="top: 40%; left: 10%; transform: scale(1.1);"></div>
+		<div class="booking-triangle" style="top: 17%; left: 77%; transform: scale(0.9);"></div>
+</div>
+
+<div class="booking-container">
+		<div class="booking-description">
+				<h1>Welcome to Booking!</h1>
+				<p>Plan your perfect stay with ease and confidence.</p>
+				<p>Quick booking, tailored searches, and secure options await you.</p>
+		</div>
+		<div class="booking-photo-section">
+				<img th:src="@{/img/hotel-between-palms.jpg}" alt="Hotel">
+		</div>
+		<a th:href="@{/rooms}" class="booking-reserve-button">Reserve</a>
+</div>
+
+<footer class="index-footer" th:insert="~{fragments/footer :: #footerFragment}"></footer>
+</body>
+</html>

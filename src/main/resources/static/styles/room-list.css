@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c7e9c7;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+}
+
+.title h1 {
+    font-size: 38px;
+    color: #004d00;
+    margin-bottom: 26px;
+    text-align: center;
+}
+
+.text p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #555;
+    text-align: center;
+}
+
+.description p {
+    font-size: 24px;
+}
+
+.sort-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    background-color: #e9f7e9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sort-tools {
+    display: flex;
+    gap: 70px;
+    align-items: center;
+}
+
+.sort-section label {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.sort-section select {
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 180px;
+    background-color: #ffffff;
+    color: #333;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sort-section select:hover {
+    background-color: #f2f2f2;
+    transform: scale(1.02);
+}
+
+.sort-section select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+}
+
+.sort-section button {
+    padding: 12px 34px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    background-color: #017301;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.sort-section button:hover {
+    background-color: #1c961c;
+    transform: scale(1.02);
+}
+
+.sort-section select option {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.sort-section select option:hover {
+    background-color: #f2f2f2;
+}
+
+.sort-section select:focus option {
+    background-color: #d6f7d6;
+}
+
+.room-list {
+    margin-top: 30px;
+}
+
+.room-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.room-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.room {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.room:hover {
+    background-color: #e6f7e6;
+    transform: scale(1.02);
+}
+
+.room-number {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.status-free {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-booked {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-process,
+.status-forpay {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-unavailable {
+    background-color: #d6d8d9;
+    color: #6c757d;
+}
+
+.room-type {
+    flex: 2;
+    text-align: center;
+    align-content: center;
+    font-size: 24px;
+    color: #444;
+}
+
+.room-capacity {
+    flex: 1;
+    text-align: center;
+    align-content: center;
+    font-size: 22px;
+}
+
+.room-price {
+    flex: 1;
+    text-align: right;
+    align-content: center;
+    font-weight: bold;
+    font-size: 26px;
+    color: #157d19;
+}
+
+.pagination {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    gap: 20px;
+}
+
+.pagination div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pagination-link {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #017301;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-link:hover {
+    background-color: #1c961c;
+}
+
+.pagination p {
+    margin: 0;
+    color: #555;
+}
+
+.login-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.triangle {
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 25px 43.3px 25px;
+    border-color: transparent transparent #004d00 transparent;
+    opacity: 0.6;
+    animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Booking - Rooms</title>
+		<link rel="icon" th:href="@{/img/favicon.png}" type="image/x-icon">
+		<link rel="stylesheet" th:href="@{/styles/room-list.css}">
+</head>
+
+<body>
+<header class="index-header" th:insert="~{fragments/header :: #headerFragment}"></header>
+<div class="login-background">
+		<div class="triangle" style="top: 10%; left: 20%; transform: scale(1);"></div>
+		<div class="triangle" style="top: 80%; left: 10%; transform: scale(0.8);"></div>
+		<div class="triangle" style="top: 40%; left: 80%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 80%; left: 90%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 40%; left: 7%; transform: scale(1.1);"></div>
+		<div class="triangle" style="top: 17%; left: 95%; transform: scale(0.9);"></div>
+</div>
+<div class="content">
+		<div class="container">
+				<div class="text">
+						<div class="title">
+								<h1>Room Reservations</h1>
+						</div>
+
+						<div class="description">
+								<p>Choose a room to book based on your needs and click on it.</p>
+						</div>
+				</div>
+				<div class="sort-section">
+						<form th:action="@{/rooms}"
+						      method="get" class="sort-tools">
+								<div>
+										<label for="sortField">Sort by: </label>
+										<select name="sortBy" id="sortField">
+												<option value="" th:selected="${sortBy == 'id'}">-</option>
+												<option value="priceForDay" th:selected="${sortBy == 'priceForDay'}">Price</option>
+												<option value="type" th:selected="${sortBy == 'type'}">Type</option>
+												<option value="roomCapacity" th:selected="${sortBy == 'roomCapacity'}">Capacity</option>
+												<option value="status" th:selected="${sortBy == 'status'}">Status</option>
+										</select>
+								</div>
+								<div>
+										<label for="sortDirection">Order: </label>
+										<select name="direction" id="sortDirection">
+												<option value="asc" th:selected="${direction == 'asc'}">Ascending</option>
+												<option value="desc" th:selected="${direction == 'desc'}">Descending</option>
+										</select>
+								</div>
+								<div>
+										<button type="submit">Sort</button>
+								</div>
+						</form>
+				</div>
+				<div class="room-list">
+						<ul>
+								<li th:each="room : ${rooms}">
+										<a th:href="@{/rooms/{id}(id=${room.id})}" class="room-link">
+												<div class="room">
+														<div class="room-number" th:text="'№ ' + (${room.number} + ${room.hotelFloor} * 100)"
+														     th:classappend="' status-' + ${room.status.name().toLowerCase()}"></div>
+														<div class="room-type" th:text="${room.type}"></div>
+														<div class="room-capacity" th:text="${room.roomCapacity} + ' person'"></div>
+														<div class="room-price" th:text="${room.priceForDay} + ' UAH'"></div>
+												</div>
+										</a>
+								</li>
+						</ul>
+				</div>
+				<div class="pagination">
+						<div>
+								<a th:if="${page.number > 0}" th:href="@{/rooms(page=${page.number - 1}, sortBy=${sortBy}, direction=${direction})}" class="pagination-link">Previous</a>
+								<a th:if="${page.hasNext()}" th:href="@{/rooms(page=${page.number + 1}, sortBy=${sortBy}, direction=${direction})}" class="pagination-link">Next</a>
+						</div>
+						<div>
+								<p th:text="'Page ' + ${page.number + 1} + ' of ' + ${page.totalPages}"></p>
+						</div>
+				</div>
+		</div>
+</div>
+<footer class="index-footer" th:insert="~{fragments/footer :: #footerFragment}"></footer>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script>
+		$(document).ready(function() {
+				$('#sortField, #sortDirection').select2();
+		});
+</script>
+</body>
+</html>

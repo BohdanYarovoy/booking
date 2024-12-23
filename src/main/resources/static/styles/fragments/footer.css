@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-fragment {
+    text-align: center;
+    padding: 25px;
+    background-color: #004d00;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    margin-top: auto;
+    border-top: 3px solid #1c961c;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}

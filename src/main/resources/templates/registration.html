@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Booking - Registration</title>
+		<link rel="icon" th:href="@{/img/favicon.png}" type="image/x-icon">
+		<link rel="stylesheet" th:href="@{/styles/registration.css}">
+</head>
+
+<body class="registration-page-body">
+<div class="registration-background">
+		<div class="triangle" style="top: 10%; left: 20%; transform: scale(1);"></div>
+		<div class="triangle" style="top: 80%; left: 15%; transform: scale(0.8);"></div>
+		<div class="triangle" style="top: 70%; left: 85%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 90%; left: 60%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 40%; left: 30%; transform: scale(1.1);"></div>
+		<div class="triangle" style="top: 17%; left: 75%; transform: scale(0.9);"></div>
+</div>
+
+<div class="registration-block">
+		<h1><a th:href="@{/}">BOOKING</a></h1>
+		<div class="form-container">
+				<h2>REGISTRATION</h2>
+				<form id="registration-form" th:action="@{/registration}" th:object="${registrationForm}" method="post">
+						<input th:field="*{firstname}" type="text" id="first-name" name="first-name" placeholder="First name" required>
+						<input th:field="*{lastname}" type="text" id="last-name" name="last-name" placeholder="Last name" required>
+						<input th:field="*{username}" type="text" id="username" name="username" placeholder="Username" required>
+						<input th:field="*{email}" type="email" id="email" name="email" placeholder="Email" required>
+						<input th:field="*{phone}" type="tel" id="phone" name="phone" placeholder="Phone" required>
+						<input th:field="*{password}" type="password" id="password" name="password" placeholder="Password" required>
+						<input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+						<span id="password-error" class="error-message"></span> <!-- Повідомлення про помилку -->
+						<button type="submit">Register</button>
+				</form>
+				<p class="login-link">Already have an account? <a th:href="@{/login}">Log in</a></p>
+		</div>
+</div>
+
+<script>
+		document.addEventListener("DOMContentLoaded", function () {
+				const form = document.getElementById('registration-form');
+				const password = document.getElementById('password');
+				const confirmPassword = document.getElementById('confirm-password');
+				const errorMessage = document.getElementById('password-error');
+
+				form.addEventListener('submit', function (e) {
+						if (password.value !== confirmPassword.value) {
+								e.preventDefault();
+								errorMessage.textContent = "Passwords do not match. Please try again.";
+								confirmPassword.focus();
+						} else {
+								errorMessage.textContent = '';
+						}
+				});
+		});
+</script>
+</body>
+</html>

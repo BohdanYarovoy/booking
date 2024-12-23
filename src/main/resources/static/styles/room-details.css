@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c7e9c7;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto auto auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    overflow-y: auto;
+}
+
+.content {
+    text-align: center;
+    margin: 20px 0 45px 0;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #017301;
+}
+
+.room-info {
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.room-info p {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.reserving-box {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 15px;
+}
+
+.reserving-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+    align-items: center;
+}
+
+.reserving-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group label {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+
+.form-group input[type="date"],
+.form-group input[type="number"] {
+    width: 60%;
+    padding: 15px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group input[type="number"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    border-color: #017301;
+    box-shadow: 0 0 8px rgba(0, 175, 0, 0.6);
+}
+
+.reserve-button {
+    background-color: #017301;
+    color: white;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: block;
+    width: 70%;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reserve-button:hover {
+    background-color: #178e17;
+}
+
+.status-box {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+    font-size: 1.3rem;
+}
+
+.status-box h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    color: #856404;
+}
+
+.status-box p {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.status-box .icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #856404;
+}
+
+.success-box {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+    font-size: 1.3rem;
+}
+
+.success-box h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    color: #155724;
+}
+
+.success-box .icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #155724;
+}
+
+.status-label {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.status-free {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-booked {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-process {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-unavailable {
+    background-color: #d6d8d9;
+    color: #6c757d;
+}
+
+.triangle {
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 25px 43.3px 25px;
+    border-color: transparent transparent #004d00 transparent;
+    opacity: 0.6;
+    animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Booking - Rooms</title>
+		<link rel="icon" th:href="@{/img/favicon.png}" type="image/x-icon">
+		<link rel="stylesheet" th:href="@{/styles/manager-panel.css}">
+</head>
+
+<body>
+<header class="index-header" th:insert="~{fragments/header :: #headerFragment}"></header>
+<div class="main">
+		<div class="container">
+				<div class="content">
+						<div class="title">
+								<h1>Room Reservations</h1>
+						</div>
+						<ul class="room-list">
+								<li th:each="room : ${rooms}" class="room-item">
+										<div class="room-summary" onclick="toggleDetails(this)">
+												<p><b>№:</b> <span th:text="${room.getNumber()} + ${room.getHotelFloor()} * 100"></span></p>
+												<p><b>Guests:</b> <span
+																th:text="${room.getCurrentGuestCount()} + ' / ' + ${room.getRoomCapacity()}"></span></p>
+												<p><b>Type:</b> <span th:text="${room.getType()}"></span></p>
+												<p><b>Total:</b> <span th:text="${room.getTotalPrice()}"></span> UAH</p>
+										</div>
+										<div class="room-details">
+												<p><b>Check In:</b> <span th:text="${room.getBookedFrom()}"></span></p>
+												<p><b>Check Out:</b> <span th:text="${room.getBookedTo()}"></span></p>
+												<p><b>Price:</b> <span th:text="${room.getPriceForDay()}"></span> UAH/day</p>
+												<p><b>Status:</b> <span th:text="${room.getStatus()}"></span></p>
+												<p><b>Description:</b> <span th:text="${room.getDescription()}"></span></p>
+												<div class="user-details" th:if="${room.getUser()} != null">
+														<p><b>Username:</b> <span th:text="${room.getUser().getUsername()}"></span></p>
+														<p><b>Firstname:</b> <span th:text="${room.getUser().getFirstname()}"></span></p>
+														<p><b>Lastname:</b> <span th:text="${room.getUser().getLastname()}"></span></p>
+														<p><b>Email:</b> <span th:text="${room.getUser().getEmail()}"></span></p>
+														<p><b>Phone:</b> <span th:text="${room.getUser().getPhone()}"></span></p>
+												</div>
+												<p th:unless="${room.getUser()} != null"><b>User details not available</b></p>
+												<div class="control-buttons">
+														<div class="reject-button">
+																<form th:action="@{/rooms/rejectReservation}" method="post">
+																		<input type="hidden" name="roomId" th:value="${room.getId()}">
+																		<input type="hidden" name="userId" th:value="${room.getUser().getId()}">
+																		<button type="submit">Reject</button>
+																</form>
+														</div>
+														<div class="apply-button">
+																<form th:action="@{/rooms/applyReservation}" method="post">
+																		<input type="hidden" name="roomId" th:value="${room.getId()}">
+																		<button type="submit">Apply</button>
+																</form>
+														</div>
+												</div>
+										</div>
+								</li>
+						</ul>
+				</div>
+				<div class="pagination">
+						<div>
+								<a th:if="${page.number > 0}"
+								   th:href="@{/manager(page=${page.number - 1}, sortBy=${sortBy}, direction=${direction})}"
+								   class="pagination-link">Previous</a>
+								<a th:if="${page.hasNext()}"
+								   th:href="@{/manager(page=${page.number + 1}, sortBy=${sortBy}, direction=${direction})}"
+								   class="pagination-link">Next</a>
+						</div>
+						<div>
+								<p th:text="'Page ' + ${page.number + 1} + ' of ' + ${page.totalPages}"></p>
+						</div>
+				</div>
+		</div>
+</div>
+<footer class="index-footer" th:insert="~{fragments/footer :: #footerFragment}"></footer>
+
+<script>
+		function toggleDetails(element) {
+				const details = element.nextElementSibling;
+				details.style.display = details.style.display === 'block' ? 'none' : 'block';
+		}
+</script>
+</body>
+</html>

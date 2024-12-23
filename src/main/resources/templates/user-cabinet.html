@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>Booking - [[${user.username}]]</title>
+		<link rel="icon" th:href="@{/img/favicon.png}" type="image/x-icon">
+		<link rel="stylesheet" th:href="@{/styles/user-cabinet.css}">
+</head>
+
+<body>
+<header class="index-header" th:insert="~{fragments/header :: #headerFragment}"></header>
+<div class="login-background">
+		<div class="triangle" style="top: 10%; left: 20%; transform: scale(1);"></div>
+		<div class="triangle" style="top: 80%; left: 15%; transform: scale(0.8);"></div>
+		<div class="triangle" style="top: 52%; left: 88%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 85%; left: 79%; transform: scale(1.2);"></div>
+		<div class="triangle" style="top: 40%; left: 5%; transform: scale(1.1);"></div>
+		<div class="triangle" style="top: 17%; left: 84%; transform: scale(0.9);"></div>
+</div>
+<div class="main">
+		<div class="container">
+				<div class="title">
+						<h1><span th:text="${user.getFirstname()} + ' ' + ${user.getLastname()}"></span></h1>
+				</div>
+				<div class="user-info">
+						<p><b>Firstname: </b><span th:text="${user.getFirstname()}"></span></p>
+						<p><b>Lastname: </b><span th:text="${user.getLastname()}"></span></p>
+						<p><b>Email: </b><span th:text="${user.getEmail()}"></span></p>
+						<p><b>Phone: </b><span th:text="${user.getPhone()}"></span></p>
+				</div>
+				<div th:if="${reservedRoom != null}" class="room-info">
+						<div class="content">
+								<h2>
+										Room № <span th:text="${reservedRoom.getNumber()} + ${reservedRoom.getHotelFloor() * 100}"></span>
+										- <span th:text="${reservedRoom.getType()}"></span>
+								</h2>
+						</div>
+						<div class="room-info">
+								<p><b>Room capacity: </b><span th:text="${reservedRoom.getRoomCapacity()}"></span> person</p>
+								<p><b>Count guests: </b><span th:text="${reservedRoom.getCurrentGuestCount()}"></span> person</p>
+								<p><b>Description: </b><span th:text="${reservedRoom.getDescription()}"></span></p>
+								<p><b>Type: </b><span th:text="${reservedRoom.getType()}"></span></p>
+								<p>
+										<b>Status: </b>
+										<span th:text="${reservedRoom.getStatus()}" th:classappend="'status-'+ ${reservedRoom.getStatus().name().toLowerCase()}" class="status-label"></span>
+								</p>
+								<p><b>Price: </b><span th:text="${reservedRoom.getPriceForDay()}"></span> UAH</p>
+								<p><b>Check In: </b><span th:text="${reservedRoom.getBookedFrom()}"></span></p>
+								<p><b>Check Out: </b><span th:text="${reservedRoom.getBookedTo()}"></span></p>
+								<p class="total-price"><b>Total price: </b><span th:text="${reservedRoom.getTotalPrice()}"></span> UAH</p>
+								<div class="attention-block">
+										<div th:if="${reservedRoom.isItOnAdminConfirming()}" class="message-box message-info">
+												<p>Once your application has been processed, a payment button will appear at this location.</p>
+												<form th:action="@{/rooms/cancelReservation}" method="post">
+														<input type="hidden" name="userId" th:value="${user.getId()}">
+														<input type="hidden" name="roomId" th:value="${reservedRoom.getId()}">
+														<button type="submit" class="cancel-button">Cancel reservation</button>
+												</form>
+										</div>
+										<div th:if="${reservedRoom.getStatus().name() == 'FORPAY'}">
+												<div class="buttons-container">
+														<form th:action="@{/rooms/payForRoom}" method="post">
+																<input type="hidden" name="roomId" th:value="${reservedRoom.getId()}">
+																<button class="pay-button">Pay now</button>
+														</form>
+														<form th:action="@{/rooms/cancelReservation}" method="post">
+																<input type="hidden" name="userId" th:value="${user.getId()}">
+																<input type="hidden" name="roomId" th:value="${reservedRoom.getId()}">
+																<button type="submit" class="cancel-button">Cancel reservation</button>
+														</form>
+												</div>
+										</div>
+										<p th:if="${reservedRoom.isPaid()}" class="message-box message-success">
+												You have already paid for this reservation. Have a nice stay!
+										</p>
+								</div>
+						</div>
+				</div>
+		</div>
+</div>
+<footer class="index-footer" th:insert="~{fragments/footer :: #footerFragment}"></footer>
+</body>
+</html>
