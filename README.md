@@ -11,7 +11,7 @@
 - [Overview](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#the-site-looks-like-)
 - [Technical Details](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#what-was-used-%EF%B8%8F)
 - [Installation & Setup](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#installation--setup-)
-- [About me](https://github.com/BohdanYarovyi/booking/edit/master/README.md#about-me)
+- [About me](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#about-me)
 
 ## 📋 Features  
 - Ease of use
