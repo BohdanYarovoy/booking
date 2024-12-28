@@ -70,7 +70,7 @@
 2. Spring Boot(Web, Security, Data JPA)
 3. No BD (in memory because I had to create the site within 3 days)
 4. Thymeleaf
-5. HTML, CSS, JS
+5. HTML, CSS
 
 ## Installation & Setup 💿
 
