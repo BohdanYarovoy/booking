@@ -6,11 +6,11 @@
 **Booking** is a convenient system for booking hotel rooms, which allows guests to automatically select and book rooms, as well as create booking requests through an intuitive interface. The system provides convenient access to all the necessary information for managers, including the functions of auditing requests, tracking their status and quick request management. Thanks to the system, you can effectively organize the booking process, reduce the workload on staff and improve the customer experience. **Booking - was created as a training project.**
 
 ## Content
-- [Description](https://github.com/BohdanYarovyi/booking/edit/master/README.md#booking)
-- [Features](https://github.com/BohdanYarovyi/booking/edit/master/README.md#booking)
-- [Overview](https://github.com/BohdanYarovyi/booking/edit/master/README.md#booking)
-- [Technical Details](https://github.com/BohdanYarovyi/booking/edit/master/README.md#what-was-used-%EF%B8%8F)
-- [Installation & Setup](https://github.com/BohdanYarovyi/booking/edit/master/README.md#installation--setup-)
+- [Description](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#booking)
+- [Features](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#-features)
+- [Overview](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#the-site-looks-like-)
+- [Technical Details](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#what-was-used-%EF%B8%8F)
+- [Installation & Setup](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#installation--setup-)
 - [Contact]()
 
 ## 📋 Features  
