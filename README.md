@@ -11,7 +11,7 @@
 - [Overview](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#the-site-looks-like-)
 - [Technical Details](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#what-was-used-%EF%B8%8F)
 - [Installation & Setup](https://github.com/BohdanYarovyi/booking/tree/master?tab=readme-ov-file#installation--setup-)
-- [Contact]()
+- [About me](https://github.com/BohdanYarovyi/booking/edit/master/README.md#about-me)
 
 ## 📋 Features  
 - Ease of use
@@ -74,4 +74,47 @@
 
 ## Installation & Setup 💿
 
+### Step 1: Clone repository
+Clone this repository to your local machine:
+```bash
+git clone https://github.com/BohdanYarovyi/booking.git
+```
 
+### Step 2: Go to the project directory
+```bash
+cd booking
+```
+
+### Step 3: If you don't have all the dependencies yet, install them using Maven 
+For Linux:
+```
+./mvnw install
+```
+or for Windows:
+```
+mvnw install
+```
+
+### Step 4: Now you can run the application:
+For linux:
+```
+./mvnw spring-boot:run
+```
+or for Windows:
+```
+mvnw spring-boot:run
+```
+
+### Step 5: Access to the application
+After the application starts, you can follow the link in your browser: `http://localhost:8080`
+
+## About me ✌
+Thank you for checking out my project!  
+I am a passionate Java Developer with a strong interest in backend development.
+
+Feel free to connect with me:
+
+- ⛓️‍💥 [LinkedIn](https://www.linkedin.com/in/%D0%B1%D0%BE%D0%B3%D0%B4%D0%B0%D0%BD-%D1%8F%D1%80%D0%BE%D0%B2%D0%B8%D0%B9-6a4445252/?locale=en_US)
+- ✉️ [Gmail](mailto:bogdan.yarovoy.01@gmail.com)
+
+I’m always open to learning new things, collaborating on projects, and discussing innovative ideas in the field of software development.
