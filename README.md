@@ -66,7 +66,7 @@
 *After paying, you have a room for living 💃*
 
 ## What was used 🛠️
-1. Java 
+1. Java 21
 2. Spring Boot(Web, Security, Data JPA)
 3. No BD (in memory because I had to create the site within 3 days)
 4. Thymeleaf
